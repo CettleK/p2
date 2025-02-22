@@ -1,0 +1,7 @@
+1) Be sure to have the news feed update on refresh at the front end
+
+2) Push to a git repository
+
+3) Add mobile compatiblity, like collapsible side bar and links that take users to designated apps
+
+4) When developing the database, have the schema configured to retrieve data as needed
