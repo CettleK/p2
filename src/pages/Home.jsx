@@ -4,7 +4,8 @@ const Home = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    fetch("https://plus2feed.vercel.app/news/")
+    //fetch("https://plus2feed.vercel.app/news/")
+    fetch("http://127.0.0.1:8000/news/")
       .then((response) => response.json())
       .then((data) => setArticles(data.articles || []))
       .catch((error) => console.error("Error fetching news:", error));
