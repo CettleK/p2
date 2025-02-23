@@ -10,8 +10,10 @@ import Passport from "./pages/Passport";
 import Tracker from "./pages/Tracker";
 import Settings from "./pages/Settings";
 import Community from "./pages/Community";
-import Sidebar from "./components/Sidebar";
 import Login from "./pages/Login";
+import Sidebar from "./components/Sidebar";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 
 function App() {
   //const [count, setCount] = useState(0)<div >
@@ -32,15 +34,15 @@ const handleLogout = () => {
   return (
     <Router>
       <div style={{ display: "flex" }}>  
-        <Sidebar />
+        <Sidebar isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
 
         <div className="flex-1 p-6 ml-64">
           <Routes>
             <Route path="/" element= {<Home/>} />
-            <Route path="/Passport" element= {<Passport/>} />
-            <Route path="/Tracker" element= {<Tracker/>} />
-            <Route path="/Settings" element= {<Settings/>} />
-            <Route path="/Community" element= {<Community/>} />
+            <Route path="/Passport" element= {<ProtectedRoute isAuthenticated={isAuthenticated}> <Passport/> </ProtectedRoute>} />
+            <Route path="/Tracker" element= {<ProtectedRoute isAuthenticated={isAuthenticated}> {<Tracker/>} </ProtectedRoute>} />
+            <Route path="/Settings" element= {<ProtectedRoute isAuthenticated={isAuthenticated}> {<Settings/>} </ProtectedRoute>} />
+            <Route path="/Community" element= {<ProtectedRoute isAuthenticated={isAuthenticated}> {<Community/>} </ProtectedRoute>} />
             <Route path="/Login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
           </Routes>
         </div>

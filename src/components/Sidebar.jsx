@@ -22,7 +22,11 @@ const Sidebar = ({ isAuthenticated, handleLogout }) => {
                 <button className="w-full p-3 bg-red-500 rounded-lg hover:bg-red-600 transition-all duration-200 text-black" 
                 onClick={handleLogout}>🚪 Logout</button>
             ) : (
-                <Link to="/login"><button>🚪 Login</button></Link>
+                <Link to="/login">
+                    <button className="w-full p-3 bg-blue-500 rounded-lg hover:bg-blue-600 transition-all duration-200 text-black">
+                        🚪 Login
+                    </button>
+                </Link>
             )}
         </div>
     </div>

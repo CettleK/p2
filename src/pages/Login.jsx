@@ -25,7 +25,7 @@ function Login({ setIsAuthenticated }) {
 
             const data = await response.json();
             localStorage.setItem("token", data.token);  // Save JWT token
-            setIsAuthenticated(true);
+            setIsAuthenticated(true);  // Update authentication state
             navigate("/");  // Redirect to Home
         } catch (err) {
             setError(err.message);
