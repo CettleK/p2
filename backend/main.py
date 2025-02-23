@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from routes import news
+from routes import news, auth
 from fastapi.middleware.cors import CORSMiddleware
+from database import init_db
 
 #venv\Scripts\Activate.bat 
 #venv\Scripts\Deactivate.bat
@@ -17,7 +18,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+init_db()
+
 app.include_router(news.router)
+app.include_router(auth.router)
 
 @app.get("/")
 def home():

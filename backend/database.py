@@ -1,14 +1,17 @@
-from motor.motor_asyncio import AsyncIOMotorClient
-import os
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
+import os
 
-load_dotenv() 
+load_dotenv()
 
-MONGO_URI = os.getenv("MONGO_URI")
-DATABASE_NAME = "health_feed"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-client = AsyncIOMotorClient(MONGO_URI)
-db = client[DATABASE_NAME]
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
 
-users_collection = db["users"]
-conditions_collection = db["conditions"]
+def init_db():
+    from models import User, Condition
+    Base.metadata.create_all(bind=engine)
