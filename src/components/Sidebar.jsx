@@ -10,7 +10,7 @@ const Sidebar = () => {
             <Link to="/" className="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">🏠 Home</Link>
             <Link to="/passport" className="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">📜 Passport</Link>
             <Link to="/tracker" className="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">📊 Tracker</Link>
-            <Link to="/CommunityEngagement" className="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">🌍 Community Engagement</Link>
+            <Link to="/Community" className="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">🌍 Community</Link>
             <Link to="/settings" className="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">⚙️ Settings</Link>
         </nav>
 

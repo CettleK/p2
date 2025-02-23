@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import Passport from "./pages/Passport";
 import Tracker from "./pages/Tracker";
 import Settings from "./pages/Settings";
-import CommunityEngagement from "./pages/CommunityEngagement";
+import Community from "./pages/Community";
 import Sidebar from "./components/Sidebar";
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
             <Route path="/Passport" element= {<Passport/>} />
             <Route path="/Tracker" element= {<Tracker/>} />
             <Route path="/Settings" element= {<Settings/>} />
-            <Route path="/CommunityEngagement" element= {<CommunityEngagement/>} />
+            <Route path="/Community" element= {<Community/>} />
           </Routes>
         </div>
 

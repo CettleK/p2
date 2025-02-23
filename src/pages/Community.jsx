@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const CommunityEngagement = () => {
+const Community = () => {
   const [groups, setGroups] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
 
@@ -78,4 +78,4 @@ const CommunityEngagement = () => {
   );
 };
 
-export default CommunityEngagement;
+export default Community;
