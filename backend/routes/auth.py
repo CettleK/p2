@@ -2,9 +2,22 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import SessionLocal
 from models import User
+from dotenv import load_dotenv
+from pydantic import BaseModel
 import bcrypt
+import jwt
+import datetime
+import os
+
+load_dotenv()
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
+
+SECRET_KEY = os.getenv("SECRET_KEY")  # Replace with a secure key
+
+class LoginRequest(BaseModel):
+    email: str
+    password: str
 
 def get_db():
     db = SessionLocal()
@@ -12,11 +25,6 @@ def get_db():
         yield db
     finally:
         db.close()
-
-@router.get("/")
-def auth_home():
-    return {"message": "Authentication API is running"}
-
 
 @router.post("/register")
 def register_user(email: str, password: str, db: Session = Depends(get_db)):
@@ -31,3 +39,23 @@ def register_user(email: str, password: str, db: Session = Depends(get_db)):
     db.refresh(user)
 
     return {"message": "User registered successfully"}
+
+@router.post("/login")
+def login_user(request: LoginRequest, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.email == request.email).first()
+    if not user or not bcrypt.checkpw(request.password.encode(), user.hashed_password.encode()):
+        raise HTTPException(status_code=401, detail="Email or password is incorrect")
+
+    # Generate JWT Token
+    token_payload = {
+        "sub": user.email,
+        "exp": datetime.datetime.now(datetime.UTC) + datetime.timedelta(hours=2)  # Token expires in 2 hours
+    }
+    token = jwt.encode(token_payload, SECRET_KEY, algorithm="HS256")
+
+    return {"token": token, "email": user.email}
+
+
+# @router.get("/")
+# def auth_home():
+#     return {"message": "Authentication API is running"}

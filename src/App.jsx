@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
 import {
   BrowserRouter as Router,
@@ -13,9 +11,23 @@ import Tracker from "./pages/Tracker";
 import Settings from "./pages/Settings";
 import Community from "./pages/Community";
 import Sidebar from "./components/Sidebar";
+import Login from "./pages/Login";
 
 function App() {
   //const [count, setCount] = useState(0)<div >
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token);
+}, []);
+
+const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+};
+
+
 
   return (
     <Router>
@@ -29,6 +41,7 @@ function App() {
             <Route path="/Tracker" element= {<Tracker/>} />
             <Route path="/Settings" element= {<Settings/>} />
             <Route path="/Community" element= {<Community/>} />
+            <Route path="/Login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
           </Routes>
         </div>
 
