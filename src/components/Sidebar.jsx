@@ -11,7 +11,7 @@ const Sidebar = () => {
             <Link to="/passport" className="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">📜 Passport</Link>
             <Link to="/tracker" className="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">📊 Tracker</Link>
             <Link to="/settings" className="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">⚙️ Settings</Link>
-            <Link to="/chat" className="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">💬 Chat</Link>
+            <Link to="/CommunityEngagement" className="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">🏘️ Community Engagement</Link>
         </nav>
 
         <div className="mt-auto">
