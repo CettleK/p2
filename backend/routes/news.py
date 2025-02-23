@@ -10,11 +10,13 @@ router = APIRouter(prefix = "/news", tags = ["News"])
 
 GOOGLE_NEWS_API = "https://newsapi.org/v2/everything"
 
-news_type = ["health", "sports", "weather", "politics", "finance"]
-random_q = random.randint(0, 4)
+# news_type = ["health", "sports", "weather", "politics", "finance"]
+# random_q = random.randint(0, 4)
+# news_type[random_q]
+
 
 @router.get("/")
-def get_health_news(q: str = news_type[random_q]):
+def get_health_news(q: str = "health"):
     api_key = os.getenv("NEWS_API_KEY")
     url = f"{GOOGLE_NEWS_API}?q={q}&apiKey={api_key}"
 
