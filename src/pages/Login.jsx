@@ -68,18 +68,18 @@ function Login({ setIsAuthenticated  }) {
         <div className="login-container">
             {showRegister ? (
                 <form onSubmit={handleRegister}>
-                    <input type="text" placeholder="Full Name" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
-                    <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <input type="text" placeholder="Full Name" value={fullName} onChange={(e) => setFullName(e.target.value)} required />&nbsp;&nbsp;
+                    <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />&nbsp;&nbsp;
+                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />&nbsp;&nbsp;
                     <input type="text" placeholder="FHIR ID" value={fhirId} onChange={(e) => setFhirId(e.target.value)} /><br></br>
                     <button type="submit">Register</button><br></br>
                     <button onClick={() => setShowRegister(false)}>Already have an account? Login</button>
                 </form>
             ) : (
                 <form onSubmit={handleLogin}>
-                    <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required /><br></br>
-                    <button type="submit">Login</button><br></br>
+                    <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />&nbsp;&nbsp;
+                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required /><br></br><br></br>
+                    <button type="submit">Login</button><br></br><br></br>
                     <button onClick={() => setShowRegister(true)}>Don't have an account? Register</button>
                 </form>
             )}

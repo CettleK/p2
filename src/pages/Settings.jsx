@@ -8,7 +8,7 @@ const Settings = () => {
   });
 
   return (
-    <div className="container mx-auto p-8 space-y-12 bg-gray-800">
+    <div className="container mx-auto p-8 space-y-12 bg-blue-300">
       <h2 className="text-4xl font-bold text-center text-white">Account Settings</h2>
 
       <div className="mb-4">

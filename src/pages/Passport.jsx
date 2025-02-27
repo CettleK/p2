@@ -44,44 +44,44 @@ const Passport = () => {
   
   
   return (
-      <div className="container mx-auto p-8 space-y-12 bg-gray-800">
+      <div className="container mx-auto p-8 space-y-12 bg-blue-300">
         <h1 className="text-4xl font-bold text-center text-white">Health Passport</h1>
 
         {/* User Basic Info Section */}
-        <div className="bg-gray-900 rounded-xl shadow-md p-6 text-center">
-          <h2 className="text-2xl font-semibold text-white">👤 User Profile</h2>
+        <div className="bg-blue-400 rounded-xl shadow-md p-6 text-center">
+          <h2 className="text-2xl font-semibold text-white">User Profile</h2>
           {userInfo ? (
-            <p className="text-gray-400 text-lg mt-2">{userInfo.fullName}</p>
+            <p className="text-gray-100 text-lg mt-2">{userInfo.fullName}</p>
           ) : (
-            <p className="text-gray-500">Loading user data...</p>
+            <p className="text-gray-100">Loading user data...</p>
           )}
         </div>
 
         {/* Active Conditions Section */}
-        <div className="bg-gray-900 rounded-xl shadow-md p-6">
-          <h2 className="text-2xl font-semibold text-white">🩺 Active Medical Conditions</h2>
+        <div className="bg-blue-400 rounded-xl shadow-md p-6">
+          <h2 className="text-2xl font-semibold text-white">Active Medical Conditions</h2>
           {activeConditions.length > 0 ? (
-            <ul className="list-disc list-inside text-gray-300 mt-2">
+            <ul className="list-disc list-inside text-gray-100 text-left mt-2">
               {activeConditions.map((condition, index) => (
                 <li key={index}>{condition}</li>
               ))}
             </ul>
           ) : (
-            <p className="text-gray-500">No active medical conditions.</p>
+            <p className="text-gray-100">No active medical conditions.</p>
           )}
         </div>
 
         {/* Inactive/Unknown Conditions Section */}
-        <div className="bg-gray-900 rounded-xl shadow-md p-6">
-          <h2 className="text-2xl font-semibold text-white">📋 Past or Unknown Conditions</h2>
+        <div className="bg-blue-400 rounded-xl shadow-md p-6">
+          <h2 className="text-2xl font-semibold text-white">Past or Unknown Conditions</h2>
           {inactiveConditions.length > 0 ? (
-            <ul className="list-disc list-inside text-gray-300 mt-2">
+            <ul className="list-disc list-inside text-gray-100 text-left mt-2">
               {inactiveConditions.map((condition, index) => (
                 <li key={index}>{condition}</li>
               ))}
             </ul>
           ) : (
-            <p className="text-gray-500">No past or unknown conditions listed.</p>
+            <p className="text-gray-100">No past or unknown conditions listed.</p>
           )}
         </div>
       </div>

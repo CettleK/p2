@@ -44,29 +44,29 @@ const Community = () => {
   };
 
   return (
-    <div className="container mx-auto p-8 space-y-12 bg-gray-800">
+    <div className="container mx-auto p-8 space-y-12 bg-blue-300">
       <h1 className="text-4xl font-bold text-center text-white">Community Engagement</h1>
 
       {/* Support Groups Section */}
-      <div className="bg-gray-900 rounded-xl shadow-md p-6">
-        <h2 className="text-2xl font-semibold text-white mb-6">🫂 Support Groups</h2>
-        <p className="text-gray-400 mb-4">
+      <div className="bg-blue-400 rounded-xl shadow-md p-6">
+        <h2 className="text-2xl font-semibold text-white mb-6">Support Groups</h2>
+        <p className="text-gray-100 mb-4">
           Connect with people who understand your journey
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {groups.map((group) => (
             <div key={group.name} className="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
               <h3 className="font-semibold text-lg text-white">{group.name}</h3>
-              <p className="text-sm text-gray-400">{group.type}</p>
+              <p className="text-sm text-gray-100">{group.type}</p>
               {group.location && (
-                <p className="text-sm text-gray-500">{group.location}</p>
+                <p className="text-sm text-gray-100">{group.location}</p>
               )}
               <a
                 href={group.link}
-                className="text-blue-500 hover:underline mt-4 inline-block"
+                className="text-gray-100 hover:underline mt-4 inline-block"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => handleLinkClick(group.link)} // 🆕 Tracking clicks
+                onClick={() => handleLinkClick(group.link)} // Tracking clicks
               >
                 Join Now →
               </a>
@@ -76,24 +76,24 @@ const Community = () => {
       </div>
 
       {/* Health Resources Section (Newly Added) */}
-      <div className="bg-gray-900 rounded-xl shadow-md p-6">
-        <h2 className="text-2xl font-semibold text-white mb-6">🌍 Health Resources</h2>
-        <p className="text-gray-400 mb-4">
+      <div className="bg-blue-400 rounded-xl shadow-md p-6">
+        <h2 className="text-2xl font-semibold text-white mb-6">Health Resources</h2>
+        <p className="text-gray-100 mb-4">
           Explore reliable health information from leading organizations
         </p>
         <ul className="space-y-4">
           {[
-            { name: "🏥 CDC - Centers for Disease Control and Prevention", url: "https://www.cdc.gov/" },
-            { name: "🌎 WHO - World Health Organization", url: "https://www.who.int/" },
-            { name: "🏨 Mayo Clinic - Health Information & Research", url: "https://www.mayoclinic.org/" },
+            { name: "CDC - Centers for Disease Control and Prevention", url: "https://www.cdc.gov/" },
+            { name: "WHO - World Health Organization", url: "https://www.who.int/" },
+            { name: "Mayo Clinic - Health Information & Research", url: "https://www.mayoclinic.org/" },
           ].map((resource, index) => (
             <li key={index}>
               <a
                 href={resource.url}
-                className="text-blue-500 hover:underline"
+                className="text-gray-100 hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => handleLinkClick(resource.url)} // 🆕 Tracking clicks
+                onClick={() => handleLinkClick(resource.url)} // Tracking clicks
               >
                 {resource.name}
               </a>
@@ -103,9 +103,9 @@ const Community = () => {
       </div>
 
       {/* Testimonials Section */}
-      <div className="bg-gray-900 rounded-xl shadow-md p-6">
-        <h2 className="text-2xl font-semibold text-white mb-6">💬 Patient Stories</h2>
-        <p className="text-gray-400 mb-4">
+      <div className="bg-blue-400 rounded-xl shadow-md p-6">
+        <h2 className="text-2xl font-semibold text-white mb-6">Patient Stories</h2>
+        <p className="text-gray-100 mb-4">
           Read inspiring testimonials from individuals managing their health conditions
         </p>
         <div className="space-y-6">
@@ -113,24 +113,24 @@ const Community = () => {
             <div key={index} className="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
               <p className="italic text-gray-300">"{t.story}"</p>
               <h3 className="mt-4 font-semibold text-white">- {t.name}</h3>
-              <p className="text-sm text-gray-400">{t.condition}</p>
+              <p className="text-sm text-gray-100">{t.condition}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Story Submission Section */}
-      <div className="bg-gray-900 rounded-xl shadow-md p-6">
-        <h2 className="text-2xl font-semibold text-white mb-6">📝 Share Your Story</h2>
+      <div className="bg-blue-400 rounded-xl shadow-md p-6">
+        <h2 className="text-2xl font-semibold text-white mb-6">Share Your Story</h2>
         <form>
           <textarea
             placeholder="Write your story here..."
-            className="w-full p-4 bg-gray-700 border border-gray-600 rounded-lg mb-6 resize-none text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-4 bg-blue-300 border border-blue-300 rounded-lg mb-6 resize-none text-white focus:outline-none focus:ring-2 focus:ring-gray-100"
             rows="6"
           ></textarea>
           <button
             type="submit"
-            className="bg-blue-500 text-gray-400 px-8 py-2 rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
+            className="bg-gray-100 text-black px-8 py-2 rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
           >
             Submit Story
           </button>

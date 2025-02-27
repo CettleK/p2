@@ -109,21 +109,21 @@ function Home() {
 
       {/* Personalized Health Insights Section */}
       {insights.length > 0 && (
-        <div className="bg-gray-100 p-4 rounded mb-4">
-          <h2 className="text-xl font-semibold">🔬 Health Insights</h2>
-          <ul className="list-disc pl-5">
+        <div className="bg-gray-100 p-4 rounded mb-4 text-left">
+          <h2 className="text-xl font-semibold">Health Insights</h2>
+          <ul className="list-disc pl-5 ">
             {insights.map((insight, index) => (
               <li key={index} className="text-gray-700">{insight}</li>
             ))}
           </ul>
         </div>
       )}
-
+      <div className="text-left flex items-start">
       {/* Category Selector */}
       <select
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
-        className="mb-4 p-2 border rounded"
+        className="mb-4 p-2 border rounded text-left"
       >
         {categories.map((category, index) => (
           <option key={index} value={category}>
@@ -135,11 +135,11 @@ function Home() {
       {/* Refresh Button */}
       <button
         onClick={() => fetchNews(token, selectedCategory)} // 🔄 Refresh based on category
-        className="bg-blue-500 text-black px-4 py-2 rounded mb-4 hover:bg-blue-600 transition-colors"
+        className="bg-blue-500 text-black px-4 py-2 rounded mb-4 hover:bg-blue-600 transition-colors button-left"
       >
         Refresh News
       </button>
-
+      </div>
       {/* Loading Indicator */}
       {loading && (
         <div className="text-center text-gray-500">
@@ -150,7 +150,7 @@ function Home() {
       {/* Articles List */}
       {articles.length > 0 ? (
         articles.map((article, index) => (
-          <div key={index} className="p-4 border-b flex items-center justify-between">
+          <div key={index} className="p-4 border-b flex items-center justify-between text-left">
             <div className="flex-1 pr-4">
             <h2 className="text-lg font-semibold">{article.title}</h2>
             <p>{article.description}</p>
