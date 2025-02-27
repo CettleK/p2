@@ -150,12 +150,21 @@ function Home() {
       {/* Articles List */}
       {articles.length > 0 ? (
         articles.map((article, index) => (
-          <div key={index} className="p-4 border-b">
+          <div key={index} className="p-4 border-b flex items-center justify-between">
+            <div className="flex-1 pr-4">
             <h2 className="text-lg font-semibold">{article.title}</h2>
             <p>{article.description}</p>
             <a href={article.url} className="text-blue-500" target="_blank" rel="noopener noreferrer" onClick={() => handleArticleClick(article.url)}>
               Read more
             </a>
+          </div>
+          {article.image_url && (
+          <img 
+            src={article.image_url} 
+            alt={article.title} 
+            className="w-32 h-20 object-cover rounded-md shadow-md"
+          />
+          )}
           </div>
         ))
       ) : (

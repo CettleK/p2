@@ -56,7 +56,7 @@ def get_health_news(user: dict = Depends(get_current_user), db: Session = Depend
     """Fetch personalized health-related news based on user conditions."""
     logger.info("News API key loaded successfully.")
 
-    search_keywords = "health"  # Default search term
+    search_keywords = "medicine"  # Default search term
 
     if user:
         logger.info(f"User detected: {user}")  # Debugging user retrieval
@@ -90,7 +90,16 @@ def get_health_news(user: dict = Depends(get_current_user), db: Session = Depend
         response.raise_for_status()
         news_data = response.json()
         logger.info("News API request successful.")
-        return {"articles": news_data.get("articles", [])}
+        articles = [
+            {
+                "title": article["title"],
+                "description": article.get("description", "No description available."),
+                "url": article["url"],
+                "image_url": article.get("urlToImage", ""),  # Extract image if available
+            }
+            for article in news_data.get("articles", [])
+        ]
+        return {"articles": articles}
 
     except requests.RequestException as e:
         logger.error(f"Error fetching news: {e}")
